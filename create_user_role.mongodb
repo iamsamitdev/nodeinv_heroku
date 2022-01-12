@@ -1,0 +1,26 @@
+const database = 'admin';
+
+// Select the database to use.
+use(database);
+
+// Get user
+db.getUsers()
+
+// Create new user
+db.createUser({
+    user: "samit", 
+    pwd: "123456", 
+    roles: [
+        {
+            role: "userAdminAnyDatabase", 
+            db: "admin"
+        }, 
+        "readWriteAnyDatabase"
+    ]
+})
+
+// Test Login with Command line
+// mongo --port 27017 -u "samit" -p "123456" --authenticationDatabase "admin"
+
+// Show current user in command line
+// db.runCommand({connectionStatus : 1})
